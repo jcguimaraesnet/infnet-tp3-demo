@@ -5,9 +5,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>95c654aa-82ec-4f09-aa04-936a5fdbe50d</UserSecretsId>
+    <ApplicationInsightsResourceId>/subscriptions/671eeb80-3dd1-4760-a6f1-dfa136791d31/resourceGroups/meu-primeiro-website-rg/providers/microsoft.insights/components/profjulioguimaraes-ai</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
       <PrivateAssets>all</PrivateAssets>
