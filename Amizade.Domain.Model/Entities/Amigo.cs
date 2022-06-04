@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace profjulioguimaraes.Models
+namespace Amizade.Domain.Model.Entities
 {
     public class Amigo
     {

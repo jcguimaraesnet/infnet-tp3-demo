@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using profjulioguimaraes.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace profjulioguimaraes.Data
 {
@@ -14,6 +9,6 @@ namespace profjulioguimaraes.Data
         {
         }
 
-        public DbSet<profjulioguimaraes.Models.Amigo>? Amigo { get; set; }
+        public DbSet<Amizade.Domain.Model.Entities.Amigo>? Amigo { get; set; }
     }
 }

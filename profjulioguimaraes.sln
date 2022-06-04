@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Pre
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Infrastructure", "2 - Infrastructure", "{C6A81347-25D4-42C9-B667-AA0DEA2E7CA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amizade.Domain.Model", "Amizade.Domain.Model\Amizade.Domain.Model.csproj", "{5A2B90C9-23A2-41FD-859D-04D421D1CA83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{8260C867-F912-4597-AD02-F3E2FB405F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8260C867-F912-4597-AD02-F3E2FB405F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8260C867-F912-4597-AD02-F3E2FB405F42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A2B90C9-23A2-41FD-859D-04D421D1CA83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2B90C9-23A2-41FD-859D-04D421D1CA83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2B90C9-23A2-41FD-859D-04D421D1CA83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2B90C9-23A2-41FD-859D-04D421D1CA83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{EEE73968-27BB-4352-8715-60CCD73A251B} = {9D3359DB-40DE-471D-938E-B0E6DD9DEE1D}
 		{6CEEDC18-3DAC-46E4-AE7A-99BA8D4BDAE1} = {C6A81347-25D4-42C9-B667-AA0DEA2E7CA2}
 		{8260C867-F912-4597-AD02-F3E2FB405F42} = {9D3359DB-40DE-471D-938E-B0E6DD9DEE1D}
+		{5A2B90C9-23A2-41FD-859D-04D421D1CA83} = {9D3359DB-40DE-471D-938E-B0E6DD9DEE1D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C15E94A2-AFF1-4AA4-AE22-3B64BC73BE68}
