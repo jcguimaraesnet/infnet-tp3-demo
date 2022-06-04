@@ -7,7 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "profjulioguimaraes", "profj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amizade.Infrastructure.Services", "Amizade.Infrastructure.Services\Amizade.Infrastructure.Services.csproj", "{6CEEDC18-3DAC-46E4-AE7A-99BA8D4BDAE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp", "FunctionApp\FunctionApp.csproj", "{8260C867-F912-4597-AD02-F3E2FB405F42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp", "FunctionApp\FunctionApp.csproj", "{8260C867-F912-4597-AD02-F3E2FB405F42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solutions Itens", "0 - Solutions Itens", "{9684CF0C-8019-4AF1-B200-4BF4D0B7B5C2}"
+	ProjectSection(SolutionItems) = preProject
+		parameters.json = parameters.json
+		template.json = template.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{9D3359DB-40DE-471D-938E-B0E6DD9DEE1D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Infrastructure", "2 - Infrastructure", "{C6A81347-25D4-42C9-B667-AA0DEA2E7CA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +40,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EEE73968-27BB-4352-8715-60CCD73A251B} = {9D3359DB-40DE-471D-938E-B0E6DD9DEE1D}
+		{6CEEDC18-3DAC-46E4-AE7A-99BA8D4BDAE1} = {C6A81347-25D4-42C9-B667-AA0DEA2E7CA2}
+		{8260C867-F912-4597-AD02-F3E2FB405F42} = {9D3359DB-40DE-471D-938E-B0E6DD9DEE1D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C15E94A2-AFF1-4AA4-AE22-3B64BC73BE68}

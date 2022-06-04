@@ -1,0 +1,42 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vulnerabilityAssessments_Default_storageContainerPath": {
+            "value": null
+        },
+        "serverfarms_CentralUSPlan_name": {
+            "value": null
+        },
+        "servers_profjulioguimaraes_sql_name": {
+            "value": null
+        },
+        "sites_prof_julio_guimaraes_app_name": {
+            "value": null
+        },
+        "components_profjulioguimaraes_ai_name": {
+            "value": null
+        },
+        "serverfarms_prof_julio_guimaraes_plan_name": {
+            "value": null
+        },
+        "sites_function_infnet_prof_julio_func_name": {
+            "value": null
+        },
+        "storageAccounts_profjulioguimaraest_name": {
+            "value": null
+        },
+        "storageAccounts_meuprimeirowebsitest_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_failure_anomalies___profjulioguimaraes_ai_name": {
+            "value": null
+        },
+        "actiongroups_application_insights_smart_detection_externalid": {
+            "value": null
+        },
+        "workspaces_DefaultWorkspace_671eeb80_3dd1_4760_a6f1_dfa136791d31_WUS2_externalid": {
+            "value": null
+        }
+    }
+}
