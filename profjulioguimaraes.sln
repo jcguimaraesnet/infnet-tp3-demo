@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Pre
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Infrastructure", "2 - Infrastructure", "{C6A81347-25D4-42C9-B667-AA0DEA2E7CA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amizade.Domain.Model", "Amizade.Domain.Model\Amizade.Domain.Model.csproj", "{5A2B90C9-23A2-41FD-859D-04D421D1CA83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amizade.Domain.Model", "Amizade.Domain.Model\Amizade.Domain.Model.csproj", "{5A2B90C9-23A2-41FD-859D-04D421D1CA83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

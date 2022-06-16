@@ -1,10 +1,11 @@
-﻿using Amizade.Infrastructure.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using profjulioguimaraes.Data;
 using System.Text;
 using Amizade.Domain.Model.Entities;
+using Amizade.Infrastructure.Services.Blob;
+using Amizade.Infrastructure.Services.Queue;
 
 namespace profjulioguimaraes.Controllers
 {
@@ -12,12 +13,18 @@ namespace profjulioguimaraes.Controllers
     {
         private readonly AmizadeDbContext _context;
         private readonly IBlobService _blobService;
+        private readonly IQueueService _queueService;
         private readonly IConfiguration _configuration;
 
-        public AmigoController(AmizadeDbContext context, IBlobService blobService, IConfiguration configuration)
+        public AmigoController(
+            AmizadeDbContext context, 
+            IBlobService blobService, 
+            IQueueService queueService,
+            IConfiguration configuration)
         {
             _context = context;
             _blobService = blobService;
+            _queueService = queueService;
             _configuration = configuration;
         }
 
@@ -37,21 +44,35 @@ namespace profjulioguimaraes.Controllers
                 return NotFound();
             }
 
-            /*************************************************
-            INVOCANDO UMA FUNÇÃO ASSINCRONAMENTE */
-            var httpClient = new HttpClient();
-            var json = JsonConvert.SerializeObject(new { amigoId = id });
-            var requestData = new StringContent(json, Encoding.UTF8, "application/json");
-            var baseAddressFunction = _configuration.GetValue<string>("FunctionBaseAddress");
-            _ = await httpClient.PostAsync(baseAddressFunction, requestData);
-            /**************************************************/
-
             var amigo = await _context.Amigo
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (amigo == null)
             {
                 return NotFound();
             }
+
+            ///*************************************************
+            //INVOCANDO UMA FUNÇÃO ASSINCRONAMENTE */
+            //var httpClient = new HttpClient();
+            //var json = JsonConvert.SerializeObject(new { amigoId = id });
+            //var requestData = new StringContent(json, Encoding.UTF8, "application/json");
+            //var baseAddressFunction = _configuration.GetValue<string>("FunctionBaseAddress");
+            //_ = await httpClient.PostAsync(baseAddressFunction, requestData);
+            ///**************************************************/
+
+
+            //primeira forma de serializar objeto json/base64 (usando package Newtonsoft.Json)
+            var jsonAmigo = JsonConvert.SerializeObject(amigo);
+            var bytesJsonAmigo = UTF8Encoding.UTF8.GetBytes(jsonAmigo);
+            string jsonAmigoBase64 = Convert.ToBase64String(bytesJsonAmigo);
+
+            //segunda forma de serializar objeto json/base64 (usando package System.Text.Json)
+            //var jsonBytes = JsonSerializer.SerializeToUtf8Bytes(amigoEntity);
+            //string jsonAmigoBase64 = Convert.ToBase64String(jsonBytes);
+
+            //enviando objeto serializado em json e base64 como msg para a fila
+            await _queueService.SendAsync(jsonAmigoBase64);
+
 
             return View(amigo);
         }

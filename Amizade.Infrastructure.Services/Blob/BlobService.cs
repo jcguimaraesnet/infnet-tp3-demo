@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Amizade.Infrastructure.Services
+namespace Amizade.Infrastructure.Services.Blob
 {
     public class BlobService : IBlobService
     {
