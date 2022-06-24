@@ -4,8 +4,31 @@ using profjulioguimaraes.Data;
 using Microsoft.Extensions.Azure;
 using Amizade.Infrastructure.Services.Blob;
 using Amizade.Infrastructure.Services.Queue;
+using Azure.Identity;
+using profjulioguimaraes.Configs;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add Azure App Configuration to the container.
+var azAppConfigConnection = builder.Configuration["AppConfigurationConnectionString"];
+if (!string.IsNullOrEmpty(azAppConfigConnection))
+{
+    // Use the connection string if it is available.
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+        options.Connect(azAppConfigConnection)
+        .ConfigureRefresh(refresh =>
+        {
+            // All configuration values will be refreshed if the sentinel key changes.
+            refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
+                .SetCacheExpiration(new TimeSpan(0, 0, 5));
+        });
+    });
+}
+
+builder.Services.Configure<Settings>(builder.Configuration.GetSection("TestApp:Settings"));
+
+builder.Services.AddAzureAppConfiguration();
 
 builder.Services.AddDbContext<AmizadeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AmizadeDbContext") ?? throw new InvalidOperationException("Connection string 'AmizadeDbContext' not found.")));
@@ -34,6 +57,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseAzureAppConfiguration();
 
 app.UseRouting();
 

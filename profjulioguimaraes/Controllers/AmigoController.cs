@@ -6,6 +6,8 @@ using System.Text;
 using Amizade.Domain.Model.Entities;
 using Amizade.Infrastructure.Services.Blob;
 using Amizade.Infrastructure.Services.Queue;
+using Microsoft.Extensions.Options;
+using profjulioguimaraes.Configs;
 
 namespace profjulioguimaraes.Controllers
 {
@@ -15,23 +17,28 @@ namespace profjulioguimaraes.Controllers
         private readonly IBlobService _blobService;
         private readonly IQueueService _queueService;
         private readonly IConfiguration _configuration;
+        private readonly Settings _settings;
 
         public AmigoController(
             AmizadeDbContext context, 
             IBlobService blobService, 
             IQueueService queueService,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IOptionsSnapshot<Settings> settings)
         {
             _context = context;
             _blobService = blobService;
             _queueService = queueService;
             _configuration = configuration;
+            _settings = settings.Value;
         }
 
         // GET: Amigo
         public async Task<IActionResult> Index()
         {
-              return _context.Amigo != null ? 
+            ViewData["Message"] = _settings.Message;
+
+            return _context.Amigo != null ? 
                           View(await _context.Amigo.ToListAsync()) :
                           Problem("Entity set 'AmizadeDbContext.Amigo'  is null.");
         }

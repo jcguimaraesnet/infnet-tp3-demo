@@ -11,6 +11,12 @@
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/profjulioguimaraest",
       "type": "storage.azure",
       "connectionId": "ConnectionStringStorageAccount"
+    },
+    "appConfig1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.AppConfiguration/configurationStores/meu-primeiro-website-appcs",
+      "type": "appConfig.azure",
+      "connectionId": "AppConfigurationConnectionString"
     }
   }
 }
